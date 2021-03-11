@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="row row-cols-1 row-cols-md-4 g-4 bg-secondary ">
+    <div *ngFor="let video of videos" class="col">
+        <div class="card h-100">
+            <img [src]="video.thumbnails.high.url" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ video.title }}</h5>
+                <p class="card-text"> <strong>Autor : </strong>{{ video.channelTitle}}</p>
+                <p class="card-text"> <strong>Publicado : </strong>{{ video.publishedAt | date }}</p>
+            </div>
+
+            <div class="card-footer" type="button">
+                <div class="d-grid gap-2 mx-auto">
+                    <button (click)="mostrarVideo(video)" class="btn btn-outline-primary">
+                        Ver Video
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row mt-5 mb-5  text-center">
+    <div class="col">
+        <button (click)="cargarVideos()" class="btn  btn-primary btn-lg">
+                Siguiente Pagina
+        </button>
+    </div>
+</div>
